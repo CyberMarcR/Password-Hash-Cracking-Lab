@@ -13,4 +13,5 @@ John-The-Ripper-Exercises/
 │  └─ secure_zip_flag.png
 ├─ .gitignore
 └─ LICENSE
+ 
  All exercises in this repository are performed on virtual machines and files owned by the author, or on lab data supplied for learning. Do not attempt password cracking, network scanning, or other offensive techniques against systems or services that you do not own or have explicit permission to test.
