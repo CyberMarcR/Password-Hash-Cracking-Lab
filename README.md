@@ -46,3 +46,5 @@ Finally, I used John’s --show option to neatly display the cracked password in
 This makes it easier to confirm credentials at a glance.
 
 john --show --format=raw-md5 hash.txt
+
+[images/John Terminal.png](https://github.com/CyberMarcR/images/commit/42b3681d809f507ffaa80f905dfb3ef309009542)
