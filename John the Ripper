@@ -1,1 +1,26 @@
+# John The Ripper Exercises & Labs
+- This repo is for educational/demonstration use only.
+
+**Hands-on password cracking labs** using John the Ripper (Kali Linux VM).  
+Includes examples for raw MD5 / SHA1 cracking, `/etc/shadow` unshadowing, `zip2john` usage and sample walkthroughs.
+
+**Author:** MarcusR / [GitHub - CyberMarcR](https://github.com/CyberMarcR)  
+**Tools:** John the Ripper, zip2john, rockyou.txt, hash-id.py, Kali Linux
+
+---
+
+## Contents
+- [John Basics](john-basics.md) — create a hash, crack with John (MD5 & SHA1)
+- [Unshadowing `/etc/shadow`](unshadowing-etc.md) — prepare and crack shadow/passwd extracts
+- [Cracking password-protected zip files](zip2john-crack.md) — `zip2john` → `john` → unzip
+- `scripts/` — helper scripts used in labs
+- `images/` — screenshots of terminal output (see pages above)
+
+---
+
+## Quick demo (example)
+**Create MD5 hash:**
+```bash
+echo -n "password" | md5sum
+# 5f4dcc3b5aa765d61d8327deb882cf99  -
 
