@@ -1,5 +1,6 @@
 # John The Ripper Exercises <!-- John the Ripper -->
 <img src="https://img.shields.io/badge/-John_the_Ripper-8B0000?style=for-the-badge&logo=linux&logoColor=white"/>
+
 > **Educational use only.** All exercises shown here are performed on virtual machines, lab datasets, or files owned by the author.  
 > Do **NOT** attempt password cracking, network scanning, or other offensive techniques on systems you do not own or have explicit permission to test.
 
