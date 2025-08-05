@@ -1,17 +1,48 @@
-John-The-Ripper-Exercises/
-├─ README.md
-├─ john-basics.md
-├─ unshadowing-etc.md
-├─ zip2john-crack.md
-├─ scripts/
-│  ├─ make_hash.sh
-│  └─ run_john.sh
-├─ images/
-│  ├─ md5_crack.png
-│  ├─ sha1_crack.png
-│  ├─ zip2john_output.png
-│  └─ secure_zip_flag.png
-├─ .gitignore
-└─ LICENSE
- 
- All exercises in this repository are performed on virtual machines and files owned by the author, or on lab data supplied for learning. Do not attempt password cracking, network scanning, or other offensive techniques against systems or services that you do not own or have explicit permission to test.
+# John The Ripper Exercises & Labs
+> **Educational use only.** All exercises shown here are performed on virtual machines, lab datasets, or files owned by the author.  
+> Do **NOT** attempt password cracking, network scanning, or other offensive techniques on systems you do not own or have explicit permission to test.
+
+---
+
+## Author & Tools
+**Author:** MarcusR / [GitHub - CyberMarcR](https://github.com/CyberMarcR)  
+**Tools Used:**  
+- John the Ripper  
+- zip2john  
+- rockyou.txt wordlist  
+- hash-id.py  
+- Kali Linux VM  
+
+---
+
+## Contents
+- [MD5 Hash Cracking](#md5-hash-cracking)
+- [SHA1 Hash Cracking](#sha1-hash-cracking)
+- [Unshadowing `/etc/shadow`](#unshadowing-etcshadow)
+- [Cracking Password-Protected ZIP Files](#cracking-password-protected-zip-files)
+
+---
+
+## MD5 Hash Cracking
+**Goal:** Demonstrate the process of creating a test MD5 password hash, cracking it with John the Ripper, and verifying the result.
+
+---
+
+### 1: Create a Test Hash File
+First, I created a dummy user and assigned them a known MD5 password hash.  
+This simulates having extracted a hash from a system for testing purposes.
+
+echo "dummyuser:5f4dcc3b5aa765d61d8327deb882cf99" > hash.txt
+
+### 2: Crack the Hash with John the Ripper
+I then fed the hash file into John the Ripper, explicitly defining the format (raw-md5) so John parses and cracks it correctly.
+The --wordlist option points to rockyou.txt, a common password dictionary used for penetration testing and training.
+
+john --format=raw-md5 --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
+
+### 3: Display the Cracked Credentials
+
+Finally, I used John’s --show option to neatly display the cracked password in username:password format.
+This makes it easier to confirm credentials at a glance.
+
+john --show --format=raw-md5 hash.txt
