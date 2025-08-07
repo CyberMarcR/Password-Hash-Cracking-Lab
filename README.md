@@ -20,7 +20,7 @@
 ## Contents
 - [MD5 Hash Cracking](#md5-hash-cracking)
 - [SHA1 Hash Cracking](#sha1-hash-cracking)
-- [Unshadowing `/etc/shadow`](#unshadowing-etcshadow)
+- [Unshadowing /etc/shadow](#unshadowing-etcshadow)
 - [Cracking Password-Protected ZIP Files](#cracking-password-protected-zip-files)
 
 ---
@@ -86,3 +86,17 @@ john --show --format=raw-sha1 hash2.txt
 Output:
 dummyuser3:letmein123
 This confirms that the correct password was successfully recovered.
+
+---
+
+## Unshadowing /etc/shadow and /etc/passwd
+**Goal**: Merge Linux /etc/passwd and /etc/shadow files into a single file that John the Ripper can crack.
+
+---
+
+### Process:
+I combined the extracted passwd and shadow files using unshadow, outputting to unshadowed.txt.
+I then fed this into John with the --wordlist option and specified sha512crypt to ensure correct parsing.
+Command:
+unshadow local_passwd local_shadow > unshadowed.txt  
+john --wordlist=/usr/share/wordlists/rockyou.txt --format=sha512crypt unshadowed.txt
