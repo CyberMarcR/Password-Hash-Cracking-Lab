@@ -6,8 +6,7 @@
 
 ---
 
-## Author & Tools
-**Author:** MarcusR / [GitHub - CyberMarcR](https://github.com/CyberMarcR)  
+## Tools
 **Tools Used:**  
 - John the Ripper  
 - zip2john  
